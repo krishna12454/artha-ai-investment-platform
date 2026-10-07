@@ -1,0 +1,12 @@
+node_modules
+build
+dist
+__pycache__
+*.pyc
+.env
+.env.*
+!.env.example
+.git
+.github
+coverage
+.pytest_cache

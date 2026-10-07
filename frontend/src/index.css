@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --bg: #0B0E17;
+    --surface: #121723;
+    --surface-2: #1A202C;
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #F8FAFC;
+    --text-2: #94A3B8;
+    --text-3: #64748B;
+    --radius: 0.5rem;
+}
+
+html.light {
+    --bg: #F6F7F9;
+    --surface: #FFFFFF;
+    --surface-2: #F1F5F9;
+    --border: #E2E8F0;
+    --text: #0F172A;
+    --text-2: #475569;
+    --text-3: #94A3B8;
+}
+
+* {
+    border-color: var(--border);
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.font-heading { font-family: 'Outfit', sans-serif; }
+.font-serif-brand { font-family: 'Playfair Display', serif; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+
+.overline {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--text-3);
+}
+
+.surface { background-color: var(--surface); }
+.surface-2 { background-color: var(--surface-2); }
+.text-muted-2 { color: var(--text-2); }
+.text-muted-3 { color: var(--text-3); }
+.border-hair { border: 1px solid var(--border); }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(148,163,184,0.25); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(148,163,184,0.4); }
+
+::selection { background: rgba(56, 189, 248, 0.3); color: var(--text); }
+
+.live-dot {
+    position: relative;
+}
+.live-dot::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: inherit;
+    animation: livepulse 1.8s ease-out infinite;
+}
+@keyframes livepulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    100% { transform: scale(2.6); opacity: 0; }
+}
+
+.grain {
+    background-image: radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 3px 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+}
